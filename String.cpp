@@ -1,21 +1,21 @@
 #include "String.h"
 #include <iostream>
 
-// конструктор 1
+// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ 1
 String::String()
 {
 	size = 255;
 	letters = new char[size];
 }
 
-// конструктор 2 
+// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ 2 
 String::String(int size)
 {
 	this->size = size;
 	letters = new char[this->size];
 }
 
-// конструктор 3
+// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ 3
 String::String(char* let)
 {
 	size = 0;
@@ -26,7 +26,7 @@ String::String(char* let)
 		letters[i] = let[i];
 }
 
-// конструктор копирования
+// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 String::String(const String& obj)
 {
 	size = obj.size;
@@ -35,7 +35,7 @@ String::String(const String& obj)
 		letters[i] = obj.letters[i];
 }
 
-// move-конструктор
+// move-РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 String::String(String&& obj)
 {
 	size = obj.size;
@@ -44,7 +44,7 @@ String::String(String&& obj)
 		letters[i] = obj.letters[i];
 }
 
-// перегрузка оператора присваивания с типом char
+// РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° РїСЂРёСЃРІР°РёРІР°РЅРёСЏ СЃ С‚РёРїРѕРј char
 String String::operator=(const char* obj)
 {
 	size = 0;
@@ -56,7 +56,7 @@ String String::operator=(const char* obj)
 	return *this;
 }
 
-// перегрузка оператора присваивания с типом String
+// РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° РїСЂРёСЃРІР°РёРІР°РЅРёСЏ СЃ С‚РёРїРѕРј String
 String String::operator=(const String& obj)
 {
 	size = obj.size;
@@ -66,7 +66,7 @@ String String::operator=(const String& obj)
 	return *this;
 }
 
-// дружественная перегрузка оператора +
+// РґСЂСѓР¶РµСЃС‚РІРµРЅРЅР°СЏ РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° +
 String operator+(const String& obj1, const String& obj2)
 {
 	String obj3 = String();
@@ -81,7 +81,7 @@ String operator+(const String& obj1, const String& obj2)
 	return obj3;
 }
 
-// функция показа строки
+// С„СѓРЅРєС†РёСЏ РїРѕРєР°Р·Р° СЃС‚СЂРѕРєРё
 void String::Show()
 {
 	for (int i = 0; i < size; i++)
@@ -89,13 +89,13 @@ void String::Show()
 	std::cout << std::endl;
 }
 
-// функция сортировки пузырьком
+// С„СѓРЅРєС†РёСЏ СЃРѕСЂС‚РёСЂРѕРІРєРё РїСѓР·С‹СЂСЊРєРѕРј
 void String::Sort()
 {
 	String str = *this;
 
-	// создание массива, где хранится информация о регистре символов
-	// приведение строки к одному регистру
+	// СЃРѕР·РґР°РЅРёРµ РјР°СЃСЃРёРІР°, РіРґРµ С…СЂР°РЅРёС‚СЃСЏ РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ СЂРµРіРёСЃС‚СЂРµ СЃРёРјРІРѕР»РѕРІ
+	// РїСЂРёРІРµРґРµРЅРёРµ СЃС‚СЂРѕРєРё Рє РѕРґРЅРѕРјСѓ СЂРµРіРёСЃС‚СЂСѓ
 	bool* isBig = new bool[str.size];
 	for (int i = 0; i < str.size; i++)
 	{
@@ -108,7 +108,7 @@ void String::Sort()
 			isBig[i] = false;
 	}
 
-	// сортировка строки и массива bool
+	// СЃРѕСЂС‚РёСЂРѕРІРєР° СЃС‚СЂРѕРєРё Рё РјР°СЃСЃРёРІР° bool
 	for (int i = 0; i < str.size - 1; i++)
 		for (int j = i + 1; j < str.size; j++)
 			if (str.letters[i] < str.letters[j])
@@ -122,7 +122,7 @@ void String::Sort()
 				isBig[j] = btmp;
 			}
 
-	// восстановление регистра в отсортированной строке
+	// РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёРµ СЂРµРіРёСЃС‚СЂР° РІ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅРѕР№ СЃС‚СЂРѕРєРµ
 	for (int i = 0; i < str.size; i++)
 		if (isBig[i])
 			str.letters[i] -= 32;
@@ -130,7 +130,7 @@ void String::Sort()
 	*this = str;
 }
 
-// деструктор
+// РґРµСЃС‚СЂСѓРєС‚РѕСЂ
 String::~String()
 {
 	delete[] letters;
