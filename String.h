@@ -7,15 +7,15 @@ private:
 	int size;
 	char* letters;
 public:
-	String(); // конструктор 1
-	String(int size); // конструктор 2
-	String(char* let); // конструктор 3
-	String(const String& obj); // конструктор копирования
-	String(String&& obj); // move-конструктор
-	String operator=(const char* obj); // перегрузка оператора присваивания с типом char
-	String operator=(const String& obj); // перегрузка оператора присваивания с типом String
-	friend String operator+(const String& obj1, const String& obj2); // перегрузка оператора +
-	void Show(); // функция показа строки
-	void Sort(); // функция сортировки пузырьком
-	~String(); //деструктор
+	String(); // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ 1
+	String(int size); // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ 2
+	String(char* let); // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ 3
+	String(const String& obj); // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
+	String(String&& obj); // move-РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
+	String operator=(const char* obj); // РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° РїСЂРёСЃРІР°РёРІР°РЅРёСЏ СЃ С‚РёРїРѕРј char
+	String operator=(const String& obj); // РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° РїСЂРёСЃРІР°РёРІР°РЅРёСЏ СЃ С‚РёРїРѕРј String
+	friend String operator+(const String& obj1, const String& obj2); // РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° +
+	void Show(); // С„СѓРЅРєС†РёСЏ РїРѕРєР°Р·Р° СЃС‚СЂРѕРєРё
+	void Sort(); // С„СѓРЅРєС†РёСЏ СЃРѕСЂС‚РёСЂРѕРІРєРё РїСѓР·С‹СЂСЊРєРѕРј
+	~String(); //РґРµСЃС‚СЂСѓРєС‚РѕСЂ
 };
